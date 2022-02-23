@@ -12,7 +12,7 @@ public class Main extends JFrame {
     public Map<String, Boolean> heldKeys = new TreeMap<>();
 
     public Main() {
-        super("Maze Builder");
+        super("Neon Swipe");
         setSize(800,400);
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         getContentPane().add(new App(this));
@@ -39,12 +39,10 @@ public class Main extends JFrame {
             public void keyReleased(KeyEvent e) {
                 heldKeys.put(KeyEvent.getKeyText(e.getKeyCode()), false);
 
-                //Handle f11
-                if(KeyEvent.getKeyText(e.getKeyCode()) == "F11"){
-                    full_fullscreen = !full_fullscreen;
-                    System.out.println("Set full fullscreen to " + full_fullscreen);
+                //Handle f11 (toggle fullscreen)
+                if(KeyEvent.getKeyText(e.getKeyCode()).equals("F11")){
                     dispose();
-                    setUndecorated(full_fullscreen);
+                    setUndecorated(full_fullscreen = !full_fullscreen);
                     setVisible(true);
                 }
             }
